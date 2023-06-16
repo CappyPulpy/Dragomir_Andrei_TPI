@@ -1,0 +1,21 @@
+/* Import the colors.css file */
+@import url('colors.css');
+
+h1 {
+  color: #fff;
+}
+
+label {
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Add any other styles as needed */

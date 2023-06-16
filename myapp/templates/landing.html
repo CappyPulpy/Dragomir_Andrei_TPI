@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{% static 'css/colors.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Hello, {{ username }}!</h1>
+    <p>User Data: {{ user_data }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="decrement">-</button>
+        <button type="submit" name="increment">+</button>
+    </form>
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>
