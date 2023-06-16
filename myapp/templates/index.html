@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
+    <title>GAE Application</title>
+    <style>
+        :root {
+            --blue-color: #007bff;
+            --light-green-color: #00ff00;
+        }
+
+        body {
+            background-color: var(--blue-color);
+            color: var(--light-green-color);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: var(--light-green-color);
+            color: var(--blue-color);
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1 class="title">Welcome to my app</h1>
+        <p class="description">Google App Engine is a cloud-based platform that enables developers to build and deploy web applications and services with ease. It abstracts the underlying infrastructure, allowing developers to focus solely on writing code and not worry about server management. App Engine supports multiple programming languages, including Java, Python, Node.js, and more, making it flexible and accessible to a wide range of developers.
 
+One of the primary uses of Google App Engine is to host scalable web applications. It provides auto-scaling capabilities, automatically adjusting the resources allocated to an application based on the incoming traffic. This ensures that the application can handle fluctuations in user demand without manual intervention. Additionally, App Engine offers a range of built-in services and APIs, such as data storage, caching, and authentication, further simplifying the development process.
+
+One of the key advantages of using Google App Engine is its scalability. Applications deployed on App Engine can effortlessly handle sudden spikes in traffic and scale down during periods of low usage, reducing costs and optimizing resource utilization. It also offers automatic load balancing, ensuring that incoming requests are distributed evenly across multiple instances, improving performance and reliability.
+
+However, there are a few considerations to keep in mind when using App Engine. First, as a managed service, developers have limited control over the underlying infrastructure. This can be restrictive for certain applications that require fine-tuned configurations. Additionally, while App Engine supports multiple programming languages, it may not be suitable for applications with unique language requirements or specific runtime dependencies.
+
+Overall, Google App Engine is a powerful platform that simplifies application deployment and scaling, making it an excellent choice for developers looking to focus on their code rather than infrastructure management.
+
+        This app aims to show some frontend and backend functionality with proof of data retention.
+
+        Text written by ChatGPT</p>
+        <div class="button-container">
+            <a href="{% url 'login' %}" class="btn">Login</a>
+            <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+        </div>
+    </div>
 </body>
 </html>

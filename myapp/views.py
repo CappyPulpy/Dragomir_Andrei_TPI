@@ -7,7 +7,7 @@ from django.urls import reverse, resolve
 from myapp.models import MyUsers
 
 
-def home(request):
+def index_view(request):
     return render(request, 'index.html')
 
 
