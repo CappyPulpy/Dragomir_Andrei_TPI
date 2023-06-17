@@ -25,11 +25,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c37809b7-25ff-4292-8266-c38638420a65" name="Default Changelist" comment="v1.2&#10;Index page added">
+    <list default="true" id="c37809b7-25ff-4292-8266-c38638420a65" name="Default Changelist" comment="v1.3&#10;Betting functionality with updating balance">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/templates/landing.html" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/templates/landing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686948407762</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v1.3&#10;Betting functionality with updating balance">
+      <created>1686991702783</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686991702783</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,7 +142,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v1" />
     <MESSAGE value="v1.2&#10;Index page added" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2&#10;Index page added" />
+    <MESSAGE value="v1.3&#10;Betting functionality with updating balance" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.3&#10;Betting functionality with updating balance" />
   </component>
   <component name="WindowStateProjectService">
     <state x="93" y="93" width="1095" height="535" key="DiffContextDialog" timestamp="1686948480189">
@@ -154,10 +162,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="93" y="93" width="1095" height="535" key="ShowDiffWithBranchDialog/0.0.1280.720@0.0.1280.720" timestamp="1686948480189" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1686948436438">
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1686991721449">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1686948436438" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1686991721449" />
     <state x="342" y="95" key="VcsDiffUtil.ChangesDialog" timestamp="1686942923576">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
