@@ -24,4 +24,5 @@ urlpatterns = [
     path('signup', signup_view, name='signup'),
     path('landing', landing_view, name='landing'),
     path('logout', LogoutView.as_view(), name='logout'),
+    path('update_balance', update_balance_view, name='update_balance')
 ]

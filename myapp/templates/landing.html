@@ -5,19 +5,106 @@
     <title>Landing Page</title>
     <link rel="stylesheet" href="{% static 'css/colors.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .balance {
+            margin-top: 20px;
+        }
+
+        #gambling-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        #roll-btn {
+            margin-top: 10px;
+        }
+
+        #result-message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello, {{ username }}!</h1>
-    <p>User Data: {{ user_data }}</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" name="decrement">-</button>
-        <button type="submit" name="increment">+</button>
-    </form>
+    <p class="balance">Balance: {{ user_data }}</p>
+    <div id="gambling-section">
+        <form id="roll-form">
+            {% csrf_token %}
+            <label for="bet">Bet Amount:</label>
+            <input type="range" id="bet" name="bet" min="1" max="{{ user_data }}" value="1">
+            <span id="bet-value">1</span>
+            <button id="roll-btn" type="button">Roll</button>
+        </form>
+        <p id="result-message"></p>
+        <button id="reset-btn" type="button">Reset Balance</button>
+    </div>
     <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
+        {% csrf_token %}
+        <button type="submit">Logout</button>
     </form>
 
+    <script>
+        const betSlider = document.getElementById('bet');
+const betValue = document.getElementById('bet-value');
+const rollBtn = document.getElementById('roll-btn');
+const resetBtn = document.getElementById('reset-btn');
+const resultMessage = document.getElementById('result-message');
+let balance = parseInt("{{ user_data }}");
+
+betSlider.addEventListener('input', () => {
+    betValue.textContent = betSlider.value;
+});
+
+rollBtn.addEventListener('click', () => {
+    const betAmount = parseInt(betSlider.value);
+
+    if (betAmount > balance) {
+        alert('Bet amount cannot be greater than the current balance!');
+        return;
+    }
+
+    const dice1 = Math.floor(Math.random() * 6) + 1;
+    const dice2 = Math.floor(Math.random() * 6) + 1;
+    const total = dice1 + dice2;
+
+    if (total <= 6) {
+        balance -= betAmount;
+        resultMessage.textContent = `Rolled ${total}. You lost ${betAmount}!`;
+    } else {
+        balance += betAmount;
+        resultMessage.textContent = `Rolled ${total}. You won ${betAmount}!`;
+    }
+
+    document.querySelector('.balance').textContent = `Balance: ${balance}`;
+    updateBalance(balance);
+});
+
+resetBtn.addEventListener('click', () => {
+    balance = 10;
+    document.querySelector('.balance').textContent = `Balance: ${balance}`;
+    updateBalance(balance);
+});
+
+async function updateBalance(newBalance) {
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    const response = await fetch('{% url 'update_balance' %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify({ balance: newBalance }),
+    });
+
+    if (response.ok) {
+        console.log('Balance updated successfully!');
+    } else {
+        console.error('Failed to update balance.');
+    }
+}
+
+    </script>
 </body>
 </html>

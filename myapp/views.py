@@ -1,8 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.urls import reverse, resolve
+import json
 
 from myapp.models import MyUsers
 
@@ -61,3 +62,18 @@ def landing_view(request):
         'user_data': my_user.user_data
     }
     return render(request, 'landing.html', context)
+
+
+def update_balance_view(request):
+    if request.method == 'POST':
+        current_user = request.user
+        user_obj = MyUsers.objects.get(user=current_user)
+        data = json.loads(request.body)
+        new_balance = data.get('balance')
+
+        user_obj.user_data = new_balance
+        user_obj.save()
+
+        return JsonResponse({'status': 'success'})
+
+    return JsonResponse({'status': 'error'}, status=400)
